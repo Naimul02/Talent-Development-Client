@@ -7,6 +7,15 @@ import { PiExamFill } from "react-icons/pi";
 const Learning = () => {
   return (
     <div className="py-20 max-w-6xl mx-auto">
+      <div className="max-w-3xl mx-auto space-y-5 mb-20">
+        <h1 className="text-center text-4xl font-bold">
+          Let the journey of organizing your own learning begin
+        </h1>
+        <p className="text-xl text-center">
+          Go to the section of your choice to learn anything on any subject
+        </p>
+      </div>
+
       <div className="grid md:grid-cols-2  gap-12">
         <div className="flex border hover:border-green-700 rounded-lg  h-[150px] items-center justify-between  px-6">
           <div className="flex">

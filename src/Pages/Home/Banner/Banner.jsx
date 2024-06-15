@@ -13,7 +13,7 @@ const Banner = () => {
         rewind={true}
         navigation={true}
         modules={[Navigation]}
-        className="mySwiper max-w-7xl mx-auto rounded-xl"
+        className="mySwiper max-w-7xl mx-auto rounded-xl mt-[100px]"
       >
         <SwiperSlide>
           <div>

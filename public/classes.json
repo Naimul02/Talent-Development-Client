@@ -1,0 +1,83 @@
+[
+  {
+      "email": "naimul@gmail.com",
+      "title": "Introduction to Python Programming",
+      "name": "Alice Johnson",
+      "image": "https://example.com/images/python_course.jpg",
+      "price": 49.99,
+      "short_description": "Learn the fundamentals of Python programming with hands-on exercises.",
+      "total_enrolment": 1200
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Web Development Bootcamp",
+      "name": "Bob Smith",
+      "image": "https://example.com/images/web_dev_bootcamp.jpg",
+      "price": 99.99,
+      "short_description": "Become a full-stack web developer with our comprehensive bootcamp.",
+      "total_enrolment": 950
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Data Science with R",
+      "name": "Carol Williams",
+      "image": "https://example.com/images/data_science_r.jpg",
+      "price": 79.99,
+      "short_description": "Master data science concepts and techniques using the R programming language.",
+      "total_enrolment": 650
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Digital Marketing Essentials",
+      "name": "David Brown",
+      "image": "https://example.com/images/digital_marketing.jpg",
+      "price": 59.99,
+      "short_description": "Learn key digital marketing strategies to grow your business online.",
+      "total_enrolment": 800
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Graphic Design for Beginners",
+      "name": "Eva Green",
+      "image": "https://example.com/images/graphic_design.jpg",
+      "price": 45.00,
+      "short_description": "Start your journey in graphic design with this beginner-friendly course.",
+      "total_enrolment": 500
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Advanced Excel Techniques",
+      "name": "Frank Wilson",
+      "image": "https://example.com/images/advanced_excel.jpg",
+      "price": 39.99,
+      "short_description": "Enhance your Excel skills with advanced functions and data analysis techniques.",
+      "total_enrolment": 300
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Photography Masterclass",
+      "name": "Grace Taylor",
+      "image": "https://example.com/images/photography_masterclass.jpg",
+      "price": 69.99,
+      "short_description": "Learn professional photography techniques from an industry expert.",
+      "total_enrolment": 400
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Project Management Professional (PMP) Certification",
+      "name": "Henry Lee",
+      "image": "https://example.com/images/pmp_certification.jpg",
+      "price": 150.00,
+      "short_description": "Prepare for the PMP certification with our intensive training course.",
+      "total_enrolment": 200
+  },
+  {
+      "email": "naimul@gmail.com",
+      "title": "Yoga for Beginners",
+      "name": "Isabella Davis",
+      "image": "https://example.com/images/yoga_for_beginners.jpg",
+      "price": 29.99,
+      "short_description": "Start your yoga practice with this beginner-friendly course.",
+      "total_enrolment": 900
+  }
+]
