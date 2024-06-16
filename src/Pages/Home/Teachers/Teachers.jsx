@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 const Teachers = () => {
+  
   return (
     <div className="max-w-7xl mx-auto">
       <div className="card card-side  h-[400px]  rounded-lg">
@@ -21,9 +24,10 @@ const Teachers = () => {
               students to acquire knowledge, competence, or virtue, via the
               practice of teaching.
             </p>
+            <Link to="/teachOn">
             <button className="btn btn-outline w-[300px]">
               Start Teaching Today
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>
