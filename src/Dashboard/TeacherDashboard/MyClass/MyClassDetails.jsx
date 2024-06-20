@@ -4,44 +4,45 @@ import { useQuery } from "@tanstack/react-query";
 import { FaPlus } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Loading from "../../../Shared/Loading/Loading";
 
 const MyClassDetails = () => {
+  const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
-  const { id } = useParams();
+  const { id, title } = useParams();
+
+  console.log("id", id, "title", title);
   const axiosSecure = useAxiosSecure();
-  const [assignments, setAssignments] = useState([]);
 
+  
   const {
-    data: teacherClass,
-    isLoading,
+    data: info,
     refetch,
+    isLoading,
   } = useQuery({
-    queryKey: ["teacherClasses"],
+    queryKey: ["totalEnrolAssign"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users/teacherClass/${id}`);
+      const res = await axiosSecure.get(`/totalEnrolAssign/${title}/${id}`);
       console.log(res.data);
-
-      if (res.data) {
-        const response = await axiosSecure.get(
-          `/assignmentSubmit/${res?.data?.title}`
-        );
-        console.log("assignments", response.data);
-        setAssignments(response.data);
-      }
       return res.data;
     },
   });
 
   const onSubmit = async (data) => {
-    console.log(data, teacherClass);
+    // console.log(data, teacherClass);
     const assignmentData = {
-      title: teacherClass.title,
+      name: user?.displayName,
+      email: user?.email,
+      title: title,
       data,
     };
     const res = await axiosSecure.post(`/users/assignment`, assignmentData);
+
     console.log(data, res.data);
     if (res.data.insertedId) {
+      refetch();
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -49,8 +50,13 @@ const MyClassDetails = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      // window.location.reload();
     }
   };
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <div>
       <div className="flex gap-20 ml-10 mt-10">
@@ -65,8 +71,8 @@ const MyClassDetails = () => {
                   Total Enrollment
                 </div>
                 <div className="stat-value">
-                  {teacherClass?.total_enrolment
-                    ? teacherClass?.total_enrolment
+                  {info.totalEnrolment?.total_enrolment
+                    ? info.totalEnrolment?.total_enrolment
                     : 0}
                 </div>
               </div>
@@ -76,8 +82,11 @@ const MyClassDetails = () => {
                 <div className="stat-title  text-xl font-semibold text-red-900">
                   Total Assignment
                 </div>
-                <div className="stat-value">89,400</div>
-                <div className="stat-desc">21% more than last month</div>
+                <div className="stat-value">
+                  {info?.totalAssignment?.length
+                    ? info.totalAssignment.length
+                    : 0}
+                </div>
               </div>
             </div>
             <div className="stats shadow bg-slate-100">
@@ -85,7 +94,11 @@ const MyClassDetails = () => {
                 <div className="stat-title  text-xl font-semibold text-red-900">
                   Per Day Assignment
                 </div>
-                <div className="stat-value">{assignments?.length}</div>
+                <div className="stat-value">
+                  {info?.totalSubmitAssignment?.length
+                    ? info?.totalSubmitAssignment?.length
+                    : 0}
+                </div>
               </div>
             </div>
           </div>

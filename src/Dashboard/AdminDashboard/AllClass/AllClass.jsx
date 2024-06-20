@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const AllClass = () => {
   const axiosSecure = useAxiosSecure();
@@ -89,23 +90,55 @@ const AllClass = () => {
                   <td>{singleClass.short_description.slice(0, 25)}...</td>
 
                   <td>
-                    <button
-                      className="btn btn-sm bg-green-500 text-white hover:text-black"
-                      onClick={() => handleApproved(singleClass._id)}
-                    >
-                      Approved
-                    </button>
+                    {singleClass?.status === "accepted" ? (
+                      <button
+                        className="btn btn-sm bg-green-500 text-white hover:text-black"
+                        disabled
+                      >
+                        Approved
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-sm bg-green-500 text-white hover:text-black"
+                        onClick={() => handleApproved(singleClass._id)}
+                      >
+                        Approved
+                      </button>
+                    )}
                   </td>
                   <td>
-                    <button
-                      className="btn btn-sm bg-red-600 text-white hover:text-black"
-                      onClick={() => handleRejected(singleClass._id)}
-                    >
-                      Reject
-                    </button>
+                    {singleClass.status === "rejected" ? (
+                      <button
+                        className="btn btn-sm bg-red-600 text-white hover:text-black"
+                        disabled
+                      >
+                        Reject
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-sm bg-red-600 text-white hover:text-black"
+                        onClick={() => handleRejected(singleClass._id)}
+                      >
+                        Reject
+                      </button>
+                    )}
                   </td>
                   <td>
-                    <p className="text-lg">Progress</p>
+                    <p>
+                      {singleClass.status === "accepted" ? (
+                        <Link to={`/dashboard/class/${singleClass.title}/${singleClass._id}`}>
+                          <button
+                          className="btn btn-sm w-[110px] bg-green-600 text-white hover:text-black"
+                        >
+                          see progress
+                        </button>
+                        </Link>
+                      ) : (
+                        <button className="btn btn-sm w-[110px]" disabled>
+                          see progress
+                        </button>
+                      )}
+                    </p>
                   </td>
                 </tr>
               ))}

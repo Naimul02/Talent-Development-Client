@@ -80,7 +80,7 @@ const TeacherClassCard = ({ teacherClass, refetch }) => {
               Delete
             </button>
             {teacherClass.status === "accepted" ? (
-              <Link to={`/dashboard/myClass/${teacherClass?._id}`}>
+              <Link to={`/dashboard/myClass/${teacherClass?._id}/${teacherClass?.title}`}>
                 <button className="btn btn-sm bg-teal-800 text-white hover:text-black px-5">
                   See Details
                 </button>

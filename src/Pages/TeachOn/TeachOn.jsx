@@ -3,21 +3,24 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import usePublicAxios from "../../hooks/usePublicAxios";
+import { useParams } from "react-router-dom";
 
 const TeachOn = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = usePublicAxios();
+  
   const [statusTeachOn, setStatusTeachOn] = useState();
-  console.log(statusTeachOn);
+  console.log("statusTeachOn ", statusTeachOn);
 
   const onSubmit = async (data) => {
     console.log(data);
     const infoData = {
+      
       data,
       status: "pending",
     };
-    axiosPublic.post("/teachOn", infoData).then(async (res) => {
+    axiosPublic.post(`/teachOn`, infoData).then(async (res) => {
       console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({

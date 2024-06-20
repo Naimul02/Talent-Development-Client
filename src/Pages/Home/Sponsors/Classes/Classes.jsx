@@ -15,7 +15,7 @@ const Classes = () => {
     queryKey: ["classes"],
     queryFn: async () => {
       const res = await axiosPublic.get("/classes");
-      console.log(res.data);
+      // console.log(res.data);
 
       return res.data;
     },
@@ -23,10 +23,18 @@ const Classes = () => {
   const descendingSort = classes?.sort(
     (a, b) => b.total_enrolment - a.total_enrolment
   );
-  console.log("hello vai :", descendingSort);
+  // console.log("hello vai :", descendingSort);
 
   return (
     <div className="my-16 bg-slate-100 py-20 px-20">
+      <div className="space-y-2 mb-8">
+        <h1 className="text-3xl font-bold text-center">Our Classes</h1>
+        <p className="max-w-5xl mx-auto text-center">
+          The class is a blueprint that defines a nature of a future object. An
+          instance is a specific object created from a particular class. Classes
+          are used to create and manage new objects and support inheritance—a
+        </p>
+      </div>
       <Swiper
         slidesPerView={3}
         spaceBetween={30}

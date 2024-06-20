@@ -18,7 +18,7 @@ const MyClass = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/teacherClasses/${user?.email}`);
-      console.log("AMI KOI" , res.data);
+      // console.log("AMI KOI" , res.data);
       return res.data;
     },
   });

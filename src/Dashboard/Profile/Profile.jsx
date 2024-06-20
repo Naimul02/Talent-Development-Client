@@ -5,7 +5,7 @@ import usePublicAxios from "../../hooks/usePublicAxios";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+  console.log("user", user);
   const axiosPublic = usePublicAxios();
 
   const { data: userInfo } = useQuery({

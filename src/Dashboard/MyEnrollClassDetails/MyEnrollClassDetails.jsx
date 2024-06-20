@@ -37,13 +37,14 @@ const MyEnrollClassDetails = () => {
   }
 
   const onSubmit = async (data) => {
-    console.log(data, ratings);
+    console.log("hibru", data, ratings);
     const feedbackData = {
       ratings: ratings,
       description: data.description,
       image: user?.photoURL,
       name: user?.displayName,
       email: user?.email,
+      classTitle : info?.courseName
     };
     console.log(feedbackData);
     const res = await axiosPublic.post(`/users/feedback`, feedbackData);

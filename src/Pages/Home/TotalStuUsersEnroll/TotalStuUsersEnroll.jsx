@@ -18,7 +18,7 @@ const TotalStuUsersEnroll = () => {
     queryKey: ["classes"],
     queryFn: async () => {
       const res = await axiosPublic.get("/classes");
-      console.log(res.data);
+      // console.log(res.data);
       return res.data;
     },
   });
@@ -26,7 +26,7 @@ const TotalStuUsersEnroll = () => {
     queryKey: ["totalEnroll"],
     queryFn: async () => {
       const res = await axiosPublic.get("/payment");
-      console.log("totalEnroll ", res.data);
+      // console.log("totalEnroll ", res.data);
       return res.data;
     },
   });

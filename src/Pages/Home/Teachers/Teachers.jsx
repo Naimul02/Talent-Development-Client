@@ -1,21 +1,30 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Teachers = () => {
-  
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="card card-side  h-[400px]  rounded-lg">
         <div className="w-[40%] h-full rounded-lg">
           <img
-            src="https://sitescdn.wearevennture.co.uk/public/spencer-clarke-group/site/live/uploads/5005001.png"
+            src={
+              user
+                ? user?.photoURL
+                : "https://sitescdn.wearevennture.co.uk/public/spencer-clarke-group/site/live/uploads/5005001.png"
+            }
             alt="Movie"
             className="h-full w-full p-4 object-cover rounded-lg"
           />
         </div>
         <div className="w-[60%] flex items-center pl-10">
           <div>
-            <h1 className="text-2xl font-bold">Naimul Islum</h1>
-            <h2 className="text-xl font-semibold">Instructor</h2>
+            <h1 className="text-2xl font-bold capitalize">
+              {user ? user?.displayName : "Naimul Islum"}
+            </h1>
+
             <p className="mt-6 mb-4 text-lg ">
               A teacher, also called a schoolteacher or formally an educator, is
               a person who helps students to acquire knowledge, competence, or
@@ -25,9 +34,10 @@ const Teachers = () => {
               practice of teaching.
             </p>
             <Link to="/teachOn">
-            <button className="btn btn-outline w-[300px]">
-              Start Teaching Today
-            </button></Link>
+              <button className="btn btn-outline w-[300px]">
+                Start Teaching Today
+              </button>
+            </Link>
           </div>
         </div>
       </div>

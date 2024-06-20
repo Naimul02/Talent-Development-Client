@@ -20,6 +20,7 @@ import UpdateClass from "../Dashboard/TeacherDashboard/MyClass/UpdateClass";
 import MyClassDetails from "../Dashboard/TeacherDashboard/MyClass/MyClassDetails";
 import MyEnrollClassDetails from "../Dashboard/MyEnrollClassDetails/MyEnrollClassDetails";
 import Profile from "../Dashboard/Profile/Profile";
+import ClassDetail from "../Dashboard/AdminDashboard/ClassDetail/ClassDetail";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/allClasses",
         element: <AllClasses></AllClasses>,
+        loader : () => fetch('http://localhost:5000/classesCount')
       },
       {
         path: "/class/details/:id",
@@ -67,14 +69,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-          path: '/profile',
-          element : <PrivateRoutes>
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
             <Profile></Profile>
           </PrivateRoutes>
-      }
+        ),
+      },
     ],
   },
-  
 
   // dashboard
   {
@@ -92,7 +95,8 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myenroll-class/:id",
         element: <MyEnrollClassDetails></MyEnrollClassDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/my-enroll/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/my-enroll/${params.id}`),
       },
       // teacher related api
       {
@@ -120,7 +124,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/myClass/:id",
+        path: "/dashboard/myClass/:id/:title",
         element: (
           <AdminPrivateRoute>
             <MyClassDetails></MyClassDetails>
@@ -134,6 +138,14 @@ const router = createBrowserRouter([
         element: (
           <AdminPrivateRoute>
             <Users></Users>
+          </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/class/:classTitle/:id",
+        element: (
+          <AdminPrivateRoute>
+            <ClassDetail></ClassDetail>
           </AdminPrivateRoute>
         ),
       },
