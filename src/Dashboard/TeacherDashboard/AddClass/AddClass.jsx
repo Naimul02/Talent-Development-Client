@@ -34,6 +34,7 @@ const AddClass = () => {
       <h1 className="text-lg font-bold">Add Class</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col lg:flex-row gap-3">
+          {/* name */}
           <label className="form-control w-full">
             <div className="label">
               <span className="label-text">Name</span>
