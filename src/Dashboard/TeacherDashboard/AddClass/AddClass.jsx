@@ -89,6 +89,7 @@ const AddClass = () => {
             />
           </label>
         </div>
+        {/* image */}
         <label className="form-control w-full">
           <div className="label">
             <span className="label-text">Image</span>
