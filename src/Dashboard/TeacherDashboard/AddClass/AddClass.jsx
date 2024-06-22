@@ -101,7 +101,7 @@ const AddClass = () => {
             {...register("image", { required: true })}
           />
         </label>
-
+          {/* description */}
         <label className="form-control w-full">
           <div className="label">
             <span className="label-text">Description</span>
