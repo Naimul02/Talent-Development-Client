@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import ReactStars from "react-rating-stars-component";
 import React, { useContext, useState } from "react";
-import { render } from "react-dom";
+
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const MyEnrollClassDetails = () => {

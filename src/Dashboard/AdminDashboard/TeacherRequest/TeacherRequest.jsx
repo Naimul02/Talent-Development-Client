@@ -41,6 +41,7 @@ const TeacherRequest = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      window.location.reload();
     }
   };
   const handleRejected = async (id) => {

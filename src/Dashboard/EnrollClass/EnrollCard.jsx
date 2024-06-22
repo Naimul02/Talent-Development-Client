@@ -25,7 +25,7 @@ const EnrollCard = ({ enrollClass }) => {
                 ${enrollClass?.price}
               </span>
             </p>
-            <Link to={`/dashboard/myenroll-class/${enrollClass.enrollClassId}`}>
+            <Link to={`/dashboard/myenroll-class/${enrollClass.courseName}`}>
               <button className="btn-outline hover:bg-teal-800 hover:text-white px-5 btn">
                 Continue
               </button>

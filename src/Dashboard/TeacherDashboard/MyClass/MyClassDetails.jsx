@@ -49,7 +49,6 @@ const MyClassDetails = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      window.location.reload();
     }
   };
   if (isLoading) {
