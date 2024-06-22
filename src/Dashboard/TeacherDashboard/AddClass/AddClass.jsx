@@ -63,6 +63,7 @@ const AddClass = () => {
             />
           </label>
         </div>
+        {/* title */}
         <div className="flex flex-col lg:flex-row gap-3">
           <label className="form-control w-full">
             <div className="label">
