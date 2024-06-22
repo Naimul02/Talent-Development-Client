@@ -35,9 +35,9 @@ const TeacherClassCard = ({ teacherClass, refetch }) => {
   console.log(teacherClass);
   return (
     <div>
-      <div className="border-2 hover:border-green-700 rounded-lg h-[300px]">
-        <div className="flex items-center  h-full">
-          <div className="p-6 w-[40%] h-full">
+      <div className="border-2 hover:border-green-700 rounded-lg lg:h-[300px]">
+        <div className="flex flex-col lg:flex-row items-center  h-full">
+          <div className="p-3 lg:p-6 w-full lg:w-[40%] h-full">
             <img
               src={teacherClass?.image}
               alt=""
@@ -45,7 +45,7 @@ const TeacherClassCard = ({ teacherClass, refetch }) => {
             />
           </div>
 
-          <div className="pr-4 py-2 w-[65%] space-y-1 py-6">
+          <div className="px-2 lg:px-0 lg:pr-4 lg:py-2 w-full lg:w-[65%] space-y-1 pb-2 lg:pb-0">
             <h2 className="text-xl font-semibold capitalize text-red-800">
               {teacherClass?.title}
             </h2>
@@ -80,7 +80,9 @@ const TeacherClassCard = ({ teacherClass, refetch }) => {
               Delete
             </button>
             {teacherClass.status === "accepted" ? (
-              <Link to={`/dashboard/myClass/${teacherClass?._id}/${teacherClass?.title}`}>
+              <Link
+                to={`/dashboard/myClass/${teacherClass?._id}/${teacherClass?.title}`}
+              >
                 <button className="btn btn-sm bg-teal-800 text-white hover:text-black px-5">
                   See Details
                 </button>

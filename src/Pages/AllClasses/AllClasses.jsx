@@ -46,8 +46,8 @@ const AllClasses = () => {
     }
   };
   return (
-    <div className="max-w-7xl mx-auto py-20 mt-[100px]">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="max-w-7xl mx-auto py-20  mt-[50px] lg:mt-[100px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-3 lg:px-0">
         {classes?.map(
           (singleClass) =>
             singleClass.status === "accepted" && (

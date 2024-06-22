@@ -6,7 +6,7 @@ const EnrollCard = ({ enrollClass }) => {
     <div>
       <div className="border hover:border-green-700 rounded-lg  ">
         <div className="flex items-center  h-full">
-          <div className="p-4 w-[40%] h-full">
+          <div className="p-4 w-[50%] lg:w-[40%] h-full">
             <img
               src={enrollClass?.courseImage}
               alt=""
@@ -14,7 +14,7 @@ const EnrollCard = ({ enrollClass }) => {
             />
           </div>
 
-          <div className="pr-4 py-2 w-[60%] space-y-2">
+          <div className="pr-4 py-2 w-[50%] lg:w-[60%] space-y-2">
             <h2 className="text-xl font-semibold capitalize text-red-800">
               {enrollClass.name}
             </h2>

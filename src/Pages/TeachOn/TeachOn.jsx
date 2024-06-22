@@ -9,14 +9,13 @@ const TeachOn = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const axiosPublic = usePublicAxios();
-  
+
   const [statusTeachOn, setStatusTeachOn] = useState();
   console.log("statusTeachOn ", statusTeachOn);
 
   const onSubmit = async (data) => {
     console.log(data);
     const infoData = {
-      
       data,
       status: "pending",
     };
@@ -41,7 +40,7 @@ const TeachOn = () => {
     });
   };
   return (
-    <div className="max-w-3xl mx-auto mt-36 mb-10">
+    <div className="max-w-3xl mx-3 lg:mx-auto mt-36 mb-10">
       <h1 className="text-3xl font-bold">Teach On</h1>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>

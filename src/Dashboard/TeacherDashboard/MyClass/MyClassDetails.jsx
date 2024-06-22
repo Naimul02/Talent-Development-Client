@@ -16,7 +16,6 @@ const MyClassDetails = () => {
   console.log("id", id, "title", title);
   const axiosSecure = useAxiosSecure();
 
-  
   const {
     data: info,
     refetch,
@@ -50,7 +49,7 @@ const MyClassDetails = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      // window.location.reload();
+      window.location.reload();
     }
   };
   if (isLoading) {
@@ -59,12 +58,12 @@ const MyClassDetails = () => {
 
   return (
     <div>
-      <div className="flex gap-20 ml-10 mt-10">
+      <div className="flex flex-col lg:flex-row gap-20 lg:ml-10 mt-10">
         <div>
-          <h2 className="text-2xl mb-2 font-semibold text-red-800">
+          <h2 className="text-2xl text-center lg:text-left mb-2 font-semibold text-red-800">
             Class Progress
           </h2>
-          <div className="flex items-center gap-5">
+          <div className="flex flex-col lg:flex-row items-center gap-5">
             <div className="stats shadow bg-slate-100">
               <div className="stat">
                 <div className="stat-title text-xl font-semibold text-red-900">
@@ -104,17 +103,21 @@ const MyClassDetails = () => {
           </div>
         </div>
         <div>
-          <h2 className="text-2xl font-semibold text-red-800 mb-2">
+          <h2 className="text-2xl font-semibold text-red-800 mb-2 text-center lg:text-left">
             Add Assignment
           </h2>
           <div>
-            <button
-              className="btn bg-green-600 text-white hover:text-black px-6 py-2 rounded-xl"
-              onClick={() => document.getElementById("my_modal_3").showModal()}
-            >
-              <FaPlus className="text-2xl"></FaPlus>
-              <span className="text-lg">Create</span>
-            </button>
+            <div className="flex justify-center lg:justify-start mb-4 lg:mb-0">
+              <button
+                className="btn bg-green-600 text-white hover:text-black px-6 py-2 rounded-xl mx-auto lg:mx-0"
+                onClick={() =>
+                  document.getElementById("my_modal_3").showModal()
+                }
+              >
+                <FaPlus className="text-2xl"></FaPlus>
+                <span className="text-lg">Create</span>
+              </button>
+            </div>
 
             <dialog id="my_modal_3" className="modal">
               <div className="modal-box">

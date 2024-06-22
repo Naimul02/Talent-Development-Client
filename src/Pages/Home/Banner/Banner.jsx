@@ -16,7 +16,7 @@ const Banner = () => {
         className="mySwiper  mt-[100px]"
       >
         <SwiperSlide>
-          <div className="lg:h-[550px] h-[250px] w-full">
+          <div className="h-[250px] w-full lg:h-[550px]">
             <div className="h-full w-full">
               <img
                 className="w-full h-full"
@@ -27,7 +27,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="lg:h-[550px] h-[250px] w-full">
+          <div className="h-[250px] w-full lg:h-[550px]">
             <div className="h-full w-full">
               <img
                 className="w-full h-full"
@@ -38,7 +38,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="lg:h-[550px] h-[250px] w-full">
+          <div className="h-[250px] w-full lg:h-[550px]">
             <div className="h-full w-full">
               <img
                 className="w-full h-full"
@@ -49,7 +49,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="lg:h-[550px] h-[250px] w-full">
+          <div className="h-[250px] w-full lg:h-[550px]">
             <div className="h-full w-full">
               <img
                 className="w-full h-full"

@@ -7,7 +7,7 @@ const Footer = () => {
         <aside>
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE2NdDsbjed9C9mOsPGxR5d9dXwINSg7S51Q&s"
-            className="w-14 md:w-16 rounded-full mx-auto"
+            className="w-14 md:w-16 rounded-full"
             alt=""
           />
           <p className="text-xl font-semibold">

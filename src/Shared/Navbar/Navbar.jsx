@@ -37,7 +37,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-opacity-50  bg-teal-950  fixed  z-10  md:px-10 lg:px-20 text-white top-0">
+    <div className="navbar bg-opacity-50  bg-teal-950  fixed  z-10   lg:px-20 text-white top-0 box-border w-full">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden">
@@ -67,15 +67,16 @@ const Navbar = () => {
         <Link to="/" className="text-lg md:text-xl flex items-center gap-3">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE2NdDsbjed9C9mOsPGxR5d9dXwINSg7S51Q&s"
-            className="w-14 md:w-16 rounded-full"
+            className="w-8 md:w-16 rounded-full"
             alt=""
           />
-          <p className="w-[70px] md:w-full">Talent development</p>
+          <p className="text-base w-[50px] md:w-full">Talent development</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{liItems}</ul>
       </div>
+
       <div className="navbar-end">
         {user?.photoURL && (
           <div className="dropdown dropdown-end">
@@ -115,7 +116,7 @@ const Navbar = () => {
           </div>
         )}
         {!user && (
-          <Link to="/login" className="btn btn-outline px-6 text-lg text-white">
+          <Link to="/login" className="btn btn-outline  px-6  text-white">
             Login
           </Link>
         )}

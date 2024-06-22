@@ -23,14 +23,14 @@ const ClassDetails = () => {
   return (
     <div className="hero py-24">
       <div className="hero-content flex-col lg:flex-row gap-16">
-        <div className="w-[40%] h-[500px] border">
+        <div className="w-full lg:w-[40%] h-[400px] lg:h-[500px]">
           <img src={singleClass.image} alt="" className="h-full object-cover" />
         </div>
-        <div className="w-[60%]">
-          <h1 className="text-3xl font-bold">
+        <div className="w-full lg:w-[60%]">
+          <h1 className="text-xl lg:text-3xl font-bold">
             Teacher Name : {singleClass?.name}
           </h1>
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-lg lg:text-2xl font-bold">
             Course Name: {singleClass?.title}
           </h2>
           <p className="py-6">

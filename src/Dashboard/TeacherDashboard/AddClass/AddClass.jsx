@@ -33,7 +33,7 @@ const AddClass = () => {
     <div className="w-[80%] mx-auto my-10">
       <h1 className="text-lg font-bold">Add Class</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex gap-3">
+        <div className="flex flex-col lg:flex-row gap-3">
           <label className="form-control w-full">
             <div className="label">
               <span className="label-text">Name</span>
@@ -61,7 +61,7 @@ const AddClass = () => {
             />
           </label>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-col lg:flex-row gap-3">
           <label className="form-control w-full">
             <div className="label">
               <span className="label-text">Title</span>

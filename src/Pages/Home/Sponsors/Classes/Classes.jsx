@@ -28,7 +28,7 @@ const Classes = () => {
   // console.log("hello vai :", descendingSort);
 
   return (
-    <div className="my-16 bg-slate-100 py-10 lg:py-20 px-8 lg:px-20">
+    <div className="my-16 bg-slate-100 py-10 lg:py-20 px-4 lg:px-20">
       <div className="space-y-2 mb-8">
         <h1 className="text-3xl font-bold text-center">Our Classes</h1>
         <p className="max-w-5xl mx-auto text-center">

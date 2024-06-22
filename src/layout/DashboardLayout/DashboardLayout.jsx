@@ -12,8 +12,8 @@ const DashboardLayout = () => {
   console.log("layout", isAdmin, "teacher", isTeacher);
 
   return (
-    <div className="flex">
-      <div className="w-64 min-h-screen bg-violet-600">
+    <div className="flex flex-col lg:flex-row">
+      <div className="w-full lg:w-64 lg:min-h-screen bg-violet-600">
         {isAdmin ? (
           <>
             <ul className="menu space-y-3 mb-1 text-white  font-semibold">

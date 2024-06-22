@@ -13,6 +13,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const MyEnrollClassDetails = () => {
   const { register, handleSubmit, reset } = useForm();
   const info = useLoaderData();
+  
   console.log("info ", info);
   const axiosPublic = usePublicAxios();
 
@@ -35,6 +36,7 @@ const MyEnrollClassDetails = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+  
 
   const onSubmit = async (data) => {
     console.log("hibru", data, ratings);
@@ -44,7 +46,7 @@ const MyEnrollClassDetails = () => {
       image: user?.photoURL,
       name: user?.displayName,
       email: user?.email,
-      classTitle : info?.courseName
+      classTitle: info?.courseName,
     };
     console.log(feedbackData);
     const res = await axiosPublic.post(`/users/feedback`, feedbackData);
@@ -61,11 +63,11 @@ const MyEnrollClassDetails = () => {
   };
   return (
     <div className="mx-10 my-10">
-      <div className="flex justify-between items-center mb-3">
+      <div className="flex flex-col lg:flex-row justify-between items-center mb-3">
         <h1 className="text-2xl font-bold  text-red-800">Assignments</h1>
         <div>
           <button
-            className="btn bg-cyan-600 px-6 text-white hover:text-black"
+            className="btn bg-cyan-600 px-6 text-white hover:text-black mt-3 lg:mt-0"
             onClick={() => document.getElementById("my_modal_4").showModal()}
           >
             Teaching Evaluation Report (TER)

@@ -54,10 +54,10 @@ const PaymentConfirm = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="mt-[150px] mb-[150px] max-w-5xl mx-auto">
-      <div className="flex items-center gap-10">
+    <div className="mt-[120px] lg:mt-[150px] mb-[150px] max-w-5xl mx-auto">
+      <div className="flex flex-col md:flex-row items-center gap-10 mx-3 lg:mx-0">
         {/* card */}
-        <div className="border hover:border-green-700 rounded-lg w-[55%]  h-[150px]">
+        <div className="border hover:border-green-700 rounded-lg w-full lg:w-[55%]  h-[150px]">
           <div className="flex items-center  h-full">
             <div className="p-4 h-full">
               <img
@@ -68,7 +68,7 @@ const PaymentConfirm = () => {
             </div>
 
             <div className="px-4">
-              <h2 className="text-2xl">{singleClass?.title}</h2>
+              <h2 className="text-xl lg:text-2xl">{singleClass?.title}</h2>
               <p className="text-xl">
                 Price :{" "}
                 <span className="text-xl font-bold text-red-900">
@@ -80,7 +80,7 @@ const PaymentConfirm = () => {
         </div>
         {/* payment */}
 
-        <div className="w-[45%]">
+        <div className="w-full lg:w-[45%]">
           <div className="border rounded-lg p-6">
             <h2 className="text-xl font-bold">{singleClass?.title}</h2>
             <p className="text-lg font-semibold py-4">
