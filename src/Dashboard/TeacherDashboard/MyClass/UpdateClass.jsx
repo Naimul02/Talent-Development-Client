@@ -16,7 +16,7 @@ const UpdateClass = () => {
   const axiosSecure = useAxiosSecure();
 
   //
-  const { data: teacherClass, isLoading } = useQuery({
+  const { data: teacherClass, isLoading , refetch } = useQuery({
     queryKey: ["teacherClass"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/users/teacherClass/${id}`);
@@ -34,6 +34,7 @@ const UpdateClass = () => {
     axiosSecure.patch(`/updateClass/${id}`, data).then((res) => {
       console.log(res.data);
       if (res.data.modifiedCount > 0) {
+        refetch();
         Swal.fire({
           position: "top-end",
           icon: "success",
