@@ -29,6 +29,7 @@ const Payment = () => {
 
   return (
     <div className="mt-40 mb-36 px-4 lg:px-20">
+      {/* payment */}
       <Elements stripe={stripePromise}>
         <CheckOutForm
           price={singleClass?.price}
