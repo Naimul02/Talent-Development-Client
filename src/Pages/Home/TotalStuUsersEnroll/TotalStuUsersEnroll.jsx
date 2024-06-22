@@ -22,10 +22,10 @@ const TotalStuUsersEnroll = () => {
       return res.data;
     },
   });
-  const { data: totalEnroll } = useQuery({
+  const { data: totalEnroll = [] } = useQuery({
     queryKey: ["totalEnroll"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/payment");
+      const res = await axiosPublic.get("/payments");
       // console.log("totalEnroll ", res.data);
       return res.data;
     },
@@ -33,8 +33,8 @@ const TotalStuUsersEnroll = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-20">
-      <div className="flex gap-4 justify-center">
-        <div className="stats stats-vertical lg:stats-horizontal shadow h-[200px] w-[700px] border  hover:border-green-600">
+      <div className="flex flex-col lg:flex-row gap-4 px-3 lg:px-0 justify-center">
+        <div className="stats stats-vertical lg:stats-horizontal shadow h-[200px] max-w-[700px] border  hover:border-green-600">
           <div className="stat">
             <div className="stat-title text-2xl font-semibold text-red-800">
               Total Users
@@ -59,7 +59,9 @@ const TotalStuUsersEnroll = () => {
             <div className="stat-title text-2xl font-semibold text-red-800">
               Total Enrollment
             </div>
-            <div className="stat-value">{totalEnroll?.length}</div>
+            <div className="stat-value">
+              {totalEnroll ? totalEnroll?.length : 0}
+            </div>
             <div className="stat-desc">
               <GiEntryDoor className="text-4xl" />
             </div>

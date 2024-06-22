@@ -1,25 +1,39 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import Loading from "../../../Shared/Loading/Loading";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const TeacherRequest = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: teachers, refetch } = useQuery({
-    queryKey: ["teachers"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/teachOn");
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [teachers, setTeachers] = useState([]);
+  const { loading, setLoading } = useContext(AuthContext);
+  const { count } = useLoaderData();
+  console.log("count : ", count);
 
-      return res.data;
-    },
-  });
-  console.log(teachers);
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+  const pages = [...Array(numberOfPages).keys()];
+  useEffect(() => {
+    axiosSecure
+      .get(`teachOn?page=${currentPage}&size=${itemsPerPage}`)
+      .then((res) => {
+        console.log("res.data", res.data);
+        setTeachers(res.data);
+        setLoading(false);
+      });
+  }, [currentPage, itemsPerPage, setLoading, axiosSecure]);
+
+  console.log("teachers vai ", teachers);
 
   const handleApproved = async (id) => {
     const res = await axiosSecure.patch(`/teachOn/${id}`);
     console.log(res.data);
     if (res.data.modifiedCount > 0) {
-      refetch();
+      
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -33,7 +47,6 @@ const TeacherRequest = () => {
     const res = await axiosSecure.patch(`/teachOnRejected/${id}`);
     console.log(res.data);
     if (res.data.modifiedCount > 0) {
-      refetch();
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -41,8 +54,27 @@ const TeacherRequest = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      window.location.reload();
     }
   };
+  const handleItemsPerPage = (e) => {
+    const value = parseInt(e.target.value);
+    setItemsPerPage(value);
+    setCurrentPage(0);
+  };
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const handleNextPage = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
       <div className="max-w-[85%] mx-auto my-10">
@@ -123,6 +155,39 @@ const TeacherRequest = () => {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="text-center mt-6">
+          <button className="btn mr-2" onClick={handlePrevPage}>
+            Prev
+          </button>
+          {pages?.map((page) => (
+            <button
+              className={`${
+                currentPage === page
+                  ? "btn bg-orange-600 hover:text-black text-white"
+                  : undefined
+              } btn mr-2`}
+              key={page}
+              onClick={() => setCurrentPage(page)}
+            >
+              {page}
+            </button>
+          ))}
+          <button className="btn ml-2" onClick={handleNextPage}>
+            Next
+          </button>
+          <select
+            value={itemsPerPage}
+            onChange={handleItemsPerPage}
+            name=""
+            id=""
+            className="ml-2 border-2 py-[10px] px-3 rounded-lg"
+          >
+            <option value="6">6</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
         </div>
       </div>
     </div>

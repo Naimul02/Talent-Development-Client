@@ -7,8 +7,9 @@ const Teachers = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="card card-side  h-[400px]  rounded-lg">
-        <div className="w-[40%] h-full rounded-lg">
+      {/* card card-side */}
+      <div className="flex flex-col lg:flex-row  lg:h-[400px]  rounded-lg">
+        <div className="w-full lg:w-[40%] h-full rounded-lg">
           <img
             src={
               user
@@ -19,9 +20,9 @@ const Teachers = () => {
             className="h-full w-full p-4 object-cover rounded-lg"
           />
         </div>
-        <div className="w-[60%] flex items-center pl-10">
+        <div className="w-full lg:w-[60%] flex flex-col lg:flex-row items-center lg:pl-10 px-3 lg:px-0">
           <div>
-            <h1 className="text-2xl font-bold capitalize">
+            <h1 className="text-2xl text-center lg:text-left font-bold capitalize">
               {user ? user?.displayName : "Naimul Islum"}
             </h1>
 

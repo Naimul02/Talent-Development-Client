@@ -21,6 +21,7 @@ import MyClassDetails from "../Dashboard/TeacherDashboard/MyClass/MyClassDetails
 import MyEnrollClassDetails from "../Dashboard/MyEnrollClassDetails/MyEnrollClassDetails";
 import Profile from "../Dashboard/Profile/Profile";
 import ClassDetail from "../Dashboard/AdminDashboard/ClassDetail/ClassDetail";
+import Payment from "../Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,8 @@ const router = createBrowserRouter([
       {
         path: "/allClasses",
         element: <AllClasses></AllClasses>,
-        loader : () => fetch('http://localhost:5000/classesCount')
+        loader: () =>
+          fetch("https://assignment-12-server-wine.vercel.app/classesCount"),
       },
       {
         path: "/class/details/:id",
@@ -51,6 +53,10 @@ const router = createBrowserRouter([
             <PaymentConfirm></PaymentConfirm>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/payment/:id",
+        element: <Payment></Payment>,
       },
       {
         path: "/login",
@@ -96,7 +102,9 @@ const router = createBrowserRouter([
         path: "/dashboard/myenroll-class/:id",
         element: <MyEnrollClassDetails></MyEnrollClassDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/my-enroll/${params.id}`),
+          fetch(
+            `https://assignment-12-server-wine.vercel.app/my-enroll/${params.id}`
+          ),
       },
       // teacher related api
       {
@@ -140,6 +148,8 @@ const router = createBrowserRouter([
             <Users></Users>
           </AdminPrivateRoute>
         ),
+        loader: () =>
+          fetch("https://assignment-12-server-wine.vercel.app/usersCount"),
       },
       {
         path: "/dashboard/class/:classTitle/:id",
@@ -156,6 +166,10 @@ const router = createBrowserRouter([
             <TeacherRequest></TeacherRequest>
           </AdminPrivateRoute>
         ),
+        loader: () =>
+          fetch(
+            "https://assignment-12-server-wine.vercel.app/teacherRequestCount"
+          ),
       },
       {
         path: "/dashboard/allClass",
@@ -164,6 +178,8 @@ const router = createBrowserRouter([
             <AllClass></AllClass>
           </AdminPrivateRoute>
         ),
+        loader: () =>
+          fetch("https://assignment-12-server-wine.vercel.app/classesCount"),
       },
     ],
   },

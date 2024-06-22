@@ -1,21 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import usePagination from "../../../hooks/usePagination";
 
 const Users = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/users");
-      return res.data;
-    },
-  });
+  const url = "users";
+  const [
+    datas,
+    handlePrevPage,
+    pages,
+    currentPage,
+    setCurrentPage,
+    handleNextPage,
+    itemsPerPage,
+    handleItemsPerPage,
+    
+  ] = usePagination(url);
+
   const handleMakeAdmin = async (user) => {
     const res = await axiosSecure.patch(`/users/admin/${user?._id}`);
     console.log(res.data);
     if (res.data.modifiedCount > 0) {
-      refetch();
+    
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -23,6 +30,7 @@ const Users = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      window.location.reload()
     }
   };
   return (
@@ -44,7 +52,7 @@ const Users = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {users?.map((user, index) => (
+            {datas?.map((user, index) => (
               <tr key={user._id}>
                 <th>
                   <label> {index + 1}</label>
@@ -82,6 +90,41 @@ const Users = () => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* pagination */}
+      <div className="text-center mt-6">
+        <button className="btn mr-2" onClick={handlePrevPage}>
+          Prev
+        </button>
+        {pages?.map((page) => (
+          <button
+            className={`${
+              currentPage === page
+                ? "btn bg-orange-600 hover:text-black text-white"
+                : undefined
+            } btn mr-2`}
+            key={page}
+            onClick={() => setCurrentPage(page)}
+          >
+            {page}
+          </button>
+        ))}
+        <button className="btn ml-2" onClick={handleNextPage}>
+          Next
+        </button>
+        <select
+          value={itemsPerPage}
+          onChange={handleItemsPerPage}
+          name=""
+          id=""
+          className="ml-2 border-2 py-[10px] px-3 rounded-lg"
+        >
+          <option value="6">6</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+        </select>
       </div>
     </div>
   );

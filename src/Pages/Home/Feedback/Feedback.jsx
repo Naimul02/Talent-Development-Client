@@ -34,7 +34,7 @@ const Feedback = () => {
         <h2 className="text-3xl font-bold text-center mb-10">Feedback</h2>
       </div>
 
-      <div className="flex justify-around">
+      <div className="flex gap-4 lg:gap-0 px-3 lg:px-0 flex-col md:flex-row lg:flex-row justify-around">
         <div className="h-[280px]">
           <img
             src="https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/16/8f/56/168f5609-3c3a-e0d9-db98-6303b95c86f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg"
@@ -43,7 +43,7 @@ const Feedback = () => {
           />
         </div>
 
-        <div className="h-64  w-[60%] flex justify-center">
+        <div className="lg:h-64  w-[full] lg:w-[60%] flex justify-center">
           <Slider {...settings} className="w-full h-full">
             {reviews &&
               reviews?.map((feedback) => {

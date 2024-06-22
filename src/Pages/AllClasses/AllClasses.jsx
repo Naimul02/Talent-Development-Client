@@ -9,6 +9,7 @@ const AllClasses = () => {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const { count } = useLoaderData();
+  console.log("count", count);
   const [classes, setClasses] = useState([]);
 
   const numberOfPages = Math.ceil(count / itemsPerPage);
@@ -16,7 +17,7 @@ const AllClasses = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/classes?page=${currentPage}&size=${itemsPerPage}`
+      `https://assignment-12-server-wine.vercel.app/classes?page=${currentPage}&size=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {

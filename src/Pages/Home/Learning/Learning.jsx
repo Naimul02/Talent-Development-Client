@@ -7,8 +7,8 @@ import { PiExamFill } from "react-icons/pi";
 const Learning = () => {
   return (
     <div className="py-20 max-w-6xl mx-auto">
-      <div className="max-w-3xl mx-auto space-y-5 mb-20">
-        <h1 className="text-center text-4xl font-bold">
+      <div className="max-w-3xl mx-auto space-y-5 mb-20 px-3 lg:px-0">
+        <h1 className="text-center text-2xl lg:text-4xl font-bold">
           Let the journey of organizing your own learning begin
         </h1>
         <p className="text-xl text-center">
@@ -16,7 +16,7 @@ const Learning = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2  gap-12">
+      <div className="grid md:grid-cols-2  gap-12 px-3 lg:px-0">
         <div className="flex border hover:border-green-700 rounded-lg  h-[150px] items-center justify-between  px-6">
           <div className="flex">
             <div>

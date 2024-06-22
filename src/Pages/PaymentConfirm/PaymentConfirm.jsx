@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import usePublicAxios from "../../hooks/usePublicAxios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const PaymentConfirm = () => {
   const { user } = useContext(AuthContext);
@@ -20,35 +21,35 @@ const PaymentConfirm = () => {
     },
   });
 
-  const handlePayment = async () => {
-    // TODO: ---------
-    console.log("data ascheki na? : ", singleClass);
-    const paymentInfo = {
-      courseName: singleClass.title,
-      totalPrice: singleClass.price,
-      studentName: user?.displayName,
-      studentImage: user?.photoURL,
-      studentEmail: user?.email,
-      courseImage: singleClass?.image,
-    };
-    const res = await axiosPublic.post("/payment", paymentInfo);
-    console.log(res.data);
-    if (res.data.insertedId) {
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Your payment has been  Successfully",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      const response = await axiosPublic.patch(`/enrollUpdate/${id}`);
-      console.log(response.data);
-      if(response.data){
+  // const handlePayment = async () => {
+  //   // TODO: ---------
+  //   console.log("data ascheki na? : ", singleClass);
+  //   const paymentInfo = {
+  //     courseName: singleClass.title,
+  //     totalPrice: singleClass.price,
+  //     studentName: user?.displayName,
+  //     studentImage: user?.photoURL,
+  //     studentEmail: user?.email,
+  //     courseImage: singleClass?.image,
+  //   };
+  //   const res = await axiosPublic.post("/payment", paymentInfo);
+  //   console.log(res.data);
+  //   if (res.data.insertedId) {
+  //     Swal.fire({
+  //       position: "top-end",
+  //       icon: "success",
+  //       title: "Your payment has been  Successfully",
+  //       showConfirmButton: false,
+  //       timer: 1500,
+  //     });
+  //     const response = await axiosPublic.patch(`/enrollUpdate/${id}`);
+  //     console.log(response.data);
+  //     if(response.data){
 
-        navigate("/dashboard/enrollClass");
-      }
-    }
-  };
+  //       navigate("/dashboard/enrollClass");
+  //     }
+  //   }
+  // };
   if (isLoading) {
     return <Loading></Loading>;
   }
@@ -89,12 +90,11 @@ const PaymentConfirm = () => {
             <p className="text-xl font-semibold py-4">
               Total Price : ${singleClass?.price}
             </p>
-            <button
-              className="btn bg-green-800 text-white hover:bg-green-900 w-full"
-              onClick={handlePayment}
-            >
-              Payment
-            </button>
+            <Link to={`/payment/${id}`}>
+              <button className="btn bg-green-800 text-white hover:bg-green-900 w-full">
+                Payment
+              </button>
+            </Link>
           </div>
         </div>
       </div>
