@@ -73,6 +73,7 @@ const Register = () => {
             className="card-body  w-full space-y-5"
             onSubmit={handleSubmit(handleRegister)}
           >
+            {/* register */}
             <h1 className="text-center text-4xl">Register</h1>
             <div className="form-control">
               <input

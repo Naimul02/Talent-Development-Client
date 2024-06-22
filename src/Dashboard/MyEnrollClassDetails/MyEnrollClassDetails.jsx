@@ -36,7 +36,6 @@ const MyEnrollClassDetails = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  
 
   const onSubmit = async (data) => {
     console.log("hibru", data, ratings);
