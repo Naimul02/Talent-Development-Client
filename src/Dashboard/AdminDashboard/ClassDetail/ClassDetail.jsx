@@ -21,7 +21,7 @@ const ClassDetail = () => {
       <div>
         <h2 className="text-2xl font-bold mb-2">Feedback</h2>
       </div>
-
+    {/* feedback */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {reviews &&
           reviews?.map((feedback) => {
