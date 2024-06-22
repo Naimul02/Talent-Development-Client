@@ -47,6 +47,7 @@ const AddClass = () => {
               {...register("name", { required: true })}
             />
           </label>
+          {/* email */}
           <label className="form-control w-full">
             <div className="label">
               <span className="label-text">Email</span>
