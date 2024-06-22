@@ -9,6 +9,7 @@ import { Navigation } from "swiper/modules";
 const Banner = () => {
   return (
     <>
+    {/* banner */}
       <Swiper
         rewind={true}
         navigation={true}
