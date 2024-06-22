@@ -22,6 +22,7 @@ const ClassDetails = () => {
 
   return (
     <div className="hero py-24">
+      {/* classDetails */}
       <div className="hero-content flex-col lg:flex-row gap-16">
         <div className="w-full lg:w-[40%] h-[400px] lg:h-[500px]">
           <img src={singleClass.image} alt="" className="h-full object-cover" />
