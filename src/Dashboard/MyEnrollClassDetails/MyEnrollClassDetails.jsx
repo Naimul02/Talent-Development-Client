@@ -13,7 +13,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const MyEnrollClassDetails = () => {
   const { register, handleSubmit, reset } = useForm();
   const info = useLoaderData();
-  
+
   console.log("info ", info);
   const axiosPublic = usePublicAxios();
 
@@ -63,6 +63,7 @@ const MyEnrollClassDetails = () => {
   };
   return (
     <div className="mx-10 my-10">
+      {/* assignment */}
       <div className="flex flex-col lg:flex-row justify-between items-center mb-3">
         <h1 className="text-2xl font-bold  text-red-800">Assignments</h1>
         <div>
