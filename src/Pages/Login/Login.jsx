@@ -66,6 +66,7 @@ const Login = () => {
 
   return (
     <div className="flex max-w-5xl mx-auto gap-6 flex-col lg:flex-row py-16 items-center">
+      {/* login page */}
       <div className="w-full lg:w-[45%]">
         <img
           src="https://cdni.iconscout.com/illustration/premium/thumb/sign-up-8694031-6983270.png"
