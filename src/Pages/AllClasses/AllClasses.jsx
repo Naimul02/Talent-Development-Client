@@ -17,7 +17,7 @@ const AllClasses = () => {
 
   useEffect(() => {
     fetch(
-      `https://assignment-12-server-wine.vercel.app/classes?page=${currentPage}&size=${itemsPerPage}`
+      `http://localhost:5000/classes?page=${currentPage}&size=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {

@@ -1,6 +1,6 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "https://assignment-12-server-wine.vercel.app",
+  baseURL: "http://localhost:5000",
 });
 const usePublicAxios = () => {
   return instance;
