@@ -6,6 +6,9 @@
 
 ## Admin User Email
   <p>naimul@gmail.com</p>
+  
+## Project Overview
+This project of mine is made for educational purposes.Here student can purchase their courses.After purchasing the course he can view the classes of that course
 
 ## Project Run
 ### npm run dev
