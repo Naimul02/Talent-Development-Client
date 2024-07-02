@@ -1,19 +1,18 @@
-# Website Name
-<h2>Talent Development</h2>
+## Website Name
+<h3>Talent Development</h3>
 
-# Admin User Name
-  <h2>naimul</h2>
+## Admin User Name
+  <h3>naimul</h3>
 
-# Admin User Email
+## Admin User Email
   <p>naimul@gmail.com</p>
 
-# Admin User Password
-  <p>asdfghAS12!</P> 
-
-# Website URL
+## Project Run
+### npm run dev
+## Website URL
 <h3>https://assignment-12-a6ad4.web.app/</h3>    
 
-# website feature
+## website feature
 <ul>
   <li>The homepage has a navbar and a banner with some sponsors and classes</li>
   <li>
