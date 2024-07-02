@@ -27,7 +27,7 @@ This project of mine is made for educational purposes.Here student can purchase 
   <li>
       By clicking on the route named all Classes, a user can see all the available classes.
   </li>
-  <li>By clicking on the route named teachOn, a user can apply for a teacher post</li>
+  
 
   <li>Clicking on the enrol button of the class will take a user to the detail page and on the detail page there is a button called payment on that click on the payment button you will be taken to another page called payment where if you want to pay you can pay by card.</li>
 
